@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express Spottem</title>
+</head>
+<body>
+    <h1>Skatespots</h1>
+    <ul>
+        <% skatespots.forEach(function(s) { %>
+            <li>
+                <a href="/skatespots/<%= s.id %>"><%= s.skatespot %></a>
+                <form action="/skatespots/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
+                    <button type="submit">X</button>
+                </form>
+                  <%= s.skatespots %>
+                </a>
+
+                - 
+                <%= s.done ? 'done' : 'not done' %>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
