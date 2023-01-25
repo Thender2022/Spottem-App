@@ -7,7 +7,8 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 router.get('/', skatespotsCtrl.index)
 router.get('/new', ensureLoggedIn, skatespotsCtrl.new)
 router.get('/:id', skatespotsCtrl.show)
-router.post('/', ensureLoggedIn, skatespotCtrl.create)
+router.post('/', ensureLoggedIn, skatespotsCtrl.create)
+router.delete('/:id', ensureLoggedIn, skatespotsCtrl.delete);
 
 
 

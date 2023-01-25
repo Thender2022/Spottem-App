@@ -13,12 +13,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/auth/google', passport.authenticate(
- 
   'google',
   {
-   
     scope: ['profile', 'email'],
-  
   }
 ));
 
@@ -35,8 +32,5 @@ router.get('/logout', function(req, res){
     res.redirect('/movies');
   });
 });
-
-
-
 
 module.exports = router;

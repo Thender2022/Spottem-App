@@ -1,17 +1,44 @@
 <%- include('../partials/header') %> 
-    <ul>
-        <% skatespots.forEach(function(s) { %>
-            <li>
-                <a href="/skatespots/<%= s.id %>"><%= s.skatespot %></a>
-                <form action="/skatespots/<%= s.id %>?_method=DELETE" class="delete-form" method="POST">
-                    <button type="submit">X</button>
-                </form>
-                  <%= s.skatespots %>
-                </a>
 
-                - 
-                <%= s.done ? 'done' : 'not done' %>
-            </li>
-        <% }); %>
-    </ul>
+
+ 
+<h2>Skatespot List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Rating</th>
+      
+      <!-- <th>Now Showing</th> -->
+    </tr>
+</thead>
+<tbody>
+   
+    <% skatespots.forEach(function(s) { %>
+        <tr>
+        <form action="/skatespots/<%= s.id %>?_method=DELETE"
+            class="delete-form" method="POST">
+        </form>
+        <td><%= s.title %></td>
+        <td><%= s.location %></td>
+        <td><%= s.rating %></td>
+        
+        <td><a href="/skatespots/<%= s._id %>">Reviews</a></td>
+        <td><button type="submit">X</button></td>
+        </tr>
+      <% }); %>
+     
+    </tbody> 
+</table> 
+
+
+
+
+
+<a href="/skatespots/new">New Spot</a>
+<!-- <a href="/skatespots/<%= skatespots.id %>/edit">Edit Spot</a> -->
+
+
+
 <%- include('../partials/footer') %>
