@@ -1,6 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
 
+const reviewSchema = new Schema({
+    desctiption: {
+        type: String,
+        require: true,
+    },
+    content: {
+        type: String,
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
+    userName: String,
+    userAvatar: String,
+    }, {
+      timestamps: true,  
+});
+
 const skatespotSchema = new Schema({
     title: {
         type: String,
@@ -10,7 +29,11 @@ const skatespotSchema = new Schema({
         type: String,
         required: true,
     },
-    rating: String,
+    rating: {
+        type: String,
+        enum: ['1', '2', '3', '4', '5']
+    },
+    
 });
 
 
