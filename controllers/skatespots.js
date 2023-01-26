@@ -1,4 +1,5 @@
 const Skatespot = require('../models/skatespot');
+const router = require('../routes/skatespots');
 
 module.exports = {
     index,
@@ -6,6 +7,8 @@ module.exports = {
     new: newSkatespot,
     create,
     delete: deleteSkatespot,
+    edit,
+    update
    
 };
 
@@ -30,7 +33,7 @@ function create(req, res) {
     skatespot.save(function(err) {
         if (err) return res.redirect('/skatespots/new');
         console.log(skatespot)
-        res.redirect('/skatespots/new')
+        res.redirect('/skatespots')
     })
     // skatespot.save(function (err) {
     //     if (err) return res.redirect("/skatespots/new");
@@ -40,8 +43,9 @@ function create(req, res) {
 };
 
 function deleteSkatespot(req, res) {
+    console.log("delete function entered")
     Skatespot.findById(req.params.id, function (err, skatespot) {
-        if(!skatespot.user.equals(req.user._id)) res.redirect(`/skatespots/${req.params.id}`);
+        // if(!skatespot.user.equals(req.user._id)) res.redirect(`/skatespots/${req.params.id}`);
         if (err) {
             console.log("Theres an error", err);
         } else  {
@@ -51,5 +55,19 @@ function deleteSkatespot(req, res) {
     })
 }
 
+function edit(req, res) {
+    Skatespot.findById(req.params.id, function(err, skatespot) {
+        res.render('skatespots/edit', {
+            title: 'Edit Skatespot',
+            skatespot
+        })
+    })
+}
+
+function update(req, res) {
+    Skatespot.findByIdAndUpdate(req.params.id, req.body, function(err, skatespot) {
+        res.redirect("/skatespots");
+    })
+}
 
 

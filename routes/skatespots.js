@@ -9,6 +9,8 @@ router.get('/new', ensureLoggedIn, skatespotsCtrl.new)
 router.get('/:id', skatespotsCtrl.show)
 router.post('/', ensureLoggedIn, skatespotsCtrl.create)
 router.delete('/:id', ensureLoggedIn, skatespotsCtrl.delete);
+router.get('/:id/edit', ensureLoggedIn, skatespotsCtrl.edit)
+router.put('/:id', ensureLoggedIn, skatespotsCtrl.update)
 
 
 

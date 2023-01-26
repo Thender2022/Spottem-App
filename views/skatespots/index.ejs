@@ -17,21 +17,24 @@
    
     <% skatespots.forEach(function(s) { %>
         <tr>
-        <form action="/skatespots/<%= s.id %>?_method=DELETE"
-            class="delete-form" method="POST">
-        </form>
-        <td><%= s.title %></td>
-        <td><%= s.location %></td>
-        <td><%= s.rating %></td>
-        
-        <td><a href="/skatespots/<%= s._id %>">Reviews</a></td>
-        <td><button type="submit">X</button></td>
+            <a href="/skatespots/<%= s.id %>"
+                <%= s.skatespot %>
+            </a>
+            <td><%= s.title %></td>
+            <td><%= s.location %></td>
+            <td><%= s.rating %></td>
+            
+            <td><a href="/skatespots/<%= s._id %>">Reviews</a></td>
+            <form action="/skatespots/<%= s.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <td><button type="submit">X</button></td>
+            </form>
+            <td><a href="/skatespots/<%= s._id %>/edit">Edit Spot</a></td>
         </tr>
-      <% }); %>
+        <% }); %>
      
     </tbody> 
 </table> 
-
 
 
 

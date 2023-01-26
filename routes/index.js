@@ -16,6 +16,7 @@ router.get('/auth/google', passport.authenticate(
   'google',
   {
     scope: ['profile', 'email'],
+    prompt: "select_account"
   }
 ));
 
@@ -29,7 +30,7 @@ router.get('/oauth2callback', passport.authenticate(
 
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/movies');
+    res.redirect('/skatespots');
   });
 });
 
