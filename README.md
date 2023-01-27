@@ -8,6 +8,14 @@ Click to open app >> https://spottem.herokuapp.com/skatespots
 
 <p>You Spottem we Gottem!</p>
 
+<h2>Technologies Used</h2>
+    <ul>
+        <li>JavaScript</li>
+        <li>Express</li>
+        <li>Node.js</li>
+        <li>MongoDB</li>
+        <li>Mongoose</li>
+    </ul>
 
 
 # Spottem-App

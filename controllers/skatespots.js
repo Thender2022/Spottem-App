@@ -42,7 +42,6 @@ function create(req, res) {
 function deleteSkatespot(req, res) {
     console.log("delete function entered")
     Skatespot.findById(req.params.id, function (err, skatespot) {
-        // if(!skatespot.user.equals(req.user._id)) res.redirect(`/skatespots/${req.params.id}`);
         if (err) {
             console.log("Theres an error", err);
         } else  {
