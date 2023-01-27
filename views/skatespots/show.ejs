@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-
+<body>
 <section id="show-page">
     <div>Title: </div>
     <div><%= skatespot.title %></div>
@@ -21,20 +21,23 @@
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5" selected>5</option>
+            <input type="submit" value="Add Review">
         </select>
-        <input type="submit" value="Add Review">
     </form>
 
 
 <% if (skatespot.reviews.length) { %>
     <% skatespot.reviews.forEach(function(r) { %>
+    <tr>
         <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" /><%= r.userName %></td>
         <td><%= r.createdAt.toLocaleDateString() %></td>
         <td><%= r.content %></td>
         <td><%= r.rating %></td>
+    </tr>
 <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
     <button type="submit">DELETE</button>
 </form>
+</body>
       <% }); %>
    
 <% } else { %>
