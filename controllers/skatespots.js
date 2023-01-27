@@ -19,17 +19,19 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    res.render('skatespots/show', {
-        skatespot: Skatespot.findById(req.params.id),
+    Skatespot.findById(req.params.id, function(err, skatespot) {
+        console.log(skatespot)
+        res.render('skatespots/show', { title: "Skatespot Details", skatespot})
     });
 }
-
+    
 function newSkatespot(req, res) {
     res.render('skatespots/new');
 }
 
 function create(req, res) {
     const skatespot = new Skatespot(req.body);
+    console.log(req.body)
     skatespot.save(function(err) {
         if (err) return res.redirect('/skatespots/new');
         console.log(skatespot)
