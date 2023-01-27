@@ -37,11 +37,6 @@ function create(req, res) {
         console.log(skatespot)
         res.redirect('/skatespots')
     })
-    // skatespot.save(function (err) {
-    //     if (err) return res.redirect("/skatespots/new");
-    //     console.log(skatespot);
-    //     res.redirect(`/skatespots/${skatespot._id}`);
-    // });
 };
 
 function deleteSkatespot(req, res) {
